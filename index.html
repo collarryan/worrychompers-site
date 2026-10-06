@@ -73,7 +73,18 @@
   </defs>
 </svg>
 
+<div class="stickybar" inert aria-hidden="true">
+  <div class="wrap stickybar-inner">
+    <a class="stickybar-logo" href="index.html"><img src="img/logo.svg" alt="Worry Chompers home" width="1016" height="395"></a>
+    <nav aria-label="Main"><ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="support/index.html">Support</a></li><li><a href="privacy/index.html">Privacy policy</a></li></ul></nav>
+  </div>
+</div>
+
 <header class="hero">
+  <nav class="topnav" aria-label="Main">
+    <div class="wrap topnav-inner"><ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="support/index.html">Support</a></li><li><a href="privacy/index.html">Privacy policy</a></li></ul></div>
+  </nav>
+
   <div class="sky" aria-hidden="true">
     <div class="sun"></div>
     <svg class="cloud cloud-a"><use href="#cloud"/></svg>
@@ -81,34 +92,34 @@
     <svg class="cloud cloud-c"><use href="#cloud"/></svg>
   </div>
 
-  <div class="hero-text">
-    <h1><img class="logo" src="img/logo.svg" alt="Worry Chompers" width="1016" height="395"></h1>
-    <p class="tagline">Helping children <span class="hl-purple">express their worries</span> and <span class="hl-teal">let them go</span></p>
-    <p class="promise">No ads <span aria-hidden="true">·</span> No subscriptions <span aria-hidden="true">·</span> Nothing leaves your device</p>
-    <div class="get">
-      <p class="soon">Coming soon to Google Play and the App Store</p>
-    </div>
+  <div class="hero-ground" aria-hidden="true">
+    <svg class="hill" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0 62 C150 58 150 50 300 52 C425 54 425 58 550 56 C635 55 635 42 720 40 C800 38 800 30 870 30 C935 30 935 38 1000 40 L1000 100 L0 100 Z" fill="#C7E6A3"/></svg>
+    <svg class="pine"><use href="#pine"/></svg>
+    <svg class="broadleaf"><use href="#broadleaf"/></svg>
+    <svg class="bush"><use href="#bush"/></svg>
+    <svg class="knoll" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="M0 50 Q500 -50 1000 50 L1000 200 L0 200 Z" fill="url(#ground)"/></svg>
+    <svg class="tuft" style="--x:4%;--y:.3;--s:1.1"><use href="#tuft"/></svg>
+    <svg class="tuft" style="--x:22%;--y:.55;--s:.8"><use href="#tuft"/></svg>
+    <svg class="tuft" style="--x:41%;--y:.25;--s:1"><use href="#tuft"/></svg>
+    <svg class="tuft" style="--x:58%;--y:.6;--s:.7"><use href="#tuft"/></svg>
+    <svg class="tuft" style="--x:92%;--y:.32;--s:1.1"><use href="#tuft"/></svg>
+    <svg class="flower" style="--x:14%;--y:.38"><use href="#flower-pink"/></svg>
+    <svg class="flower" style="--x:50%;--y:.42"><use href="#flower-yellow"/></svg>
   </div>
 
-  <div class="meadow" aria-hidden="true">
-    <div class="scenery">
-      <svg class="hill" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0 62 C150 58 150 50 300 52 C425 54 425 58 550 56 C635 55 635 42 720 40 C800 38 800 30 870 30 C935 30 935 38 1000 40 L1000 100 L0 100 Z" fill="#C7E6A3"/></svg>
-      <svg class="pine"><use href="#pine"/></svg>
-      <svg class="broadleaf"><use href="#broadleaf"/></svg>
-      <svg class="bush"><use href="#bush"/></svg>
-      <svg class="knoll" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="M0 50 Q500 -50 1000 50 L1000 200 L0 200 Z" fill="url(#ground)"/></svg>
-      <svg class="tuft" style="--x:6%;--y:.38;--s:1.2"><use href="#tuft"/></svg>
-      <svg class="tuft" style="--x:20%;--y:.62;--s:.8"><use href="#tuft"/></svg>
-      <svg class="tuft" style="--x:28%;--y:.2;--s:1.1"><use href="#tuft"/></svg>
-      <svg class="tuft" style="--x:37%;--y:.74;--s:.7"><use href="#tuft"/></svg>
-      <svg class="tuft" style="--x:64%;--y:.72;--s:.7"><use href="#tuft"/></svg>
-      <svg class="tuft" style="--x:72%;--y:.24;--s:1.1"><use href="#tuft"/></svg>
-      <svg class="tuft" style="--x:80%;--y:.6;--s:.8"><use href="#tuft"/></svg>
-      <svg class="tuft" style="--x:94%;--y:.36;--s:1.2"><use href="#tuft"/></svg>
-      <svg class="flower" style="--x:13%;--y:.42"><use href="#flower-pink"/></svg>
-      <svg class="flower" style="--x:87%;--y:.4"><use href="#flower-yellow"/></svg>
+  <div class="wrap hero-inner">
+    <div class="hero-text">
+      <h1><img class="logo" src="img/logo.svg" alt="Worry Chompers" width="1016" height="395"></h1>
+      <p class="tagline">Helping children <span class="hl-purple">express their worries</span> and <span class="hl-teal">let them go</span></p>
+      <p class="promise">No ads <span aria-hidden="true">·</span> No subscriptions <span aria-hidden="true">·</span> Nothing leaves your device</p>
+      <div class="get">
+        <a class="badge" href="#"><img src="img/google-play-badge.png" alt="Get it on Google Play" width="564" height="168"></a>
+        <a class="badge" href="#"><img src="img/app-store-badge.svg" alt="Download on the App Store" width="120" height="40"></a>
+      </div>
     </div>
-    <div class="stand hero-chomper"><img src="img/hero-chomper.webp" alt="" width="762" height="912"></div>
+    <div class="hero-device">
+      <img src="img/hero-device.webp" alt="The Worry Chompers home screen on a phone: a Chomper on its meadow, and four ways to make a worry" width="640" height="1284">
+    </div>
   </div>
 </header>
 
@@ -137,7 +148,7 @@
         <li class="step">
           <div class="step-art kind">
             <p class="bubble">You were brave to share that.</p>
-            <img src="img/kind.webp" alt="A happy Chomper" width="640" height="768">
+            <img src="img/chomper-rest.svg" alt="A Chomper, smiling" width="600" height="540">
           </div>
           <h3>Their Chomper responds</h3>
           <p>A mix of supportive and playful messages - never advice.</p>
@@ -147,7 +158,6 @@
   </section>
 
   <section class="band skyband" id="chompers">
-    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26 C240 46 480 50 760 30 C1040 10 1240 6 1440 22 L1440 60 L0 60 Z"/></svg>
     <svg class="cloud cloud-d" aria-hidden="true"><use href="#cloud"/></svg>
     <svg class="cloud cloud-e" aria-hidden="true"><use href="#cloud"/></svg>
     <div class="wrap split">
@@ -157,12 +167,11 @@
         <h3>Each child can have their own Chomper</h3>
         <p>Assign each Chomper to a child to keep their worries separate.</p>
       </div>
-      <div class="split-art"><img src="img/build.webp" alt="A Chomper in a wizard hat and glasses, holding a wand, with a top hat, a balloon, a bow tie and a crown to choose from" width="900" height="1080"></div>
+      <div class="split-art"><img src="img/build.webp" alt="A Chomper in a wizard hat and glasses, holding a wand, with a top hat, a balloon, a bow tie and a crown to choose from" width="900" height="803"></div>
     </div>
   </section>
 
   <section class="band purple" id="grown-ups">
-    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C300 8 620 4 900 22 C1140 38 1300 40 1440 28 L1440 60 L0 60 Z"/></svg>
     <div class="wrap">
       <h2>Understand your child’s worries</h2>
       <p class="intro">Every worry gets saved to a separate grown-ups area for you to read later.</p>
@@ -188,7 +197,6 @@
   </section>
 
   <section class="band cream" id="quiet">
-    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C260 44 560 48 820 30 C1060 14 1280 10 1440 26 L1440 60 L0 60 Z"/></svg>
     <div class="wrap">
       <h2>Nothing ever leaves your device</h2>
       <p class="intro">No account, no cloud, and no internet permission at all.</p>
@@ -209,13 +217,12 @@
     </div>
   </section>
 
-  <section class="band get-band" id="get">
+  <section class="band get-band" id="get" aria-label="Get Worry Chompers">
     <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C320 6 640 2 940 20 C1160 33 1320 36 1440 26 L1440 60 L0 60 Z"/></svg>
     <div class="wrap">
-      <h2>Meet the Chompers</h2>
-      <p class="intro">Chompers are gentle little creatures who love to eat worries.</p>
       <div class="get">
-        <p class="soon">Coming soon to Google Play and the App Store</p>
+          <a class="badge" href="#"><img src="img/google-play-badge.png" alt="Get it on Google Play" width="564" height="168"></a>
+          <a class="badge" href="#"><img src="img/app-store-badge.svg" alt="Download on the App Store" width="120" height="40"></a>
       </div>
     </div>
     <div class="meadow meadow-get">
@@ -228,7 +235,7 @@
         <svg class="flower" style="--x:16%;--y:.3"><use href="#flower-yellow"/></svg>
         <svg class="flower" style="--x:85%;--y:.32"><use href="#flower-pink"/></svg>
       </div>
-      <div class="stand gang"><img src="img/meet.webp" alt="Nine Chompers, each dressed up differently: a party hat, a balloon, a pirate, a crown, a wizard and more" width="920" height="1104"></div>
+      <div class="stand gang"><img src="img/lineup.svg" alt="Seven Chompers side by side: a wizard, a pirate, one with a flower crown, one with horns, one with a party hat and a balloon, one with a crown, and a cowboy" width="3060" height="540"></div>
     </div>
   </section>
 
@@ -242,10 +249,25 @@
       <a href="mailto:hello@worrychompers.com">hello@worrychompers.com</a>
     </nav>
     <p>© 2026 Crooked Ltd. This website doesn’t use cookies or analytics.</p>
-    <p class="small">Crooked Ltd, registered in England and Wales, company number 17444465. Registered office: Unit 8 Swanwick Court, Alfreton, DE55 7AS, United Kingdom.</p>
-    <p class="small">Google Play and the Google Play logo are trademarks of Google LLC.</p>
   </div>
 </footer>
 
+<script>
+  // The pinned bar slides in once the hero has scrolled away, and out again above it.
+  var pinned = document.querySelector('.stickybar');
+  var hero = document.querySelector('.hero');
+  var shown = null;
+  var update = function () {
+    var past = hero.getBoundingClientRect().bottom < 64;
+    if (past === shown) return;
+    shown = past;
+    pinned.classList.toggle('show', past);
+    pinned.toggleAttribute('inert', !past);
+    pinned.setAttribute('aria-hidden', past ? 'false' : 'true');
+  };
+  addEventListener('scroll', update, { passive: true });
+  addEventListener('resize', update);
+  update();
+</script>
 </body>
 </html>

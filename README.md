@@ -1,37 +1,55 @@
 # worrychompers.com
 
-The website for Worry Chompers: one static page, no build step, no JavaScript, no cookies and no
-analytics. `index.html` and `styles.css` are the whole of it.
+The website for Worry Chompers: a home page plus Support and the privacy policy, no build step, no
+JavaScript bar the menu's few lines (they slide the pinned bar in once the hero has scrolled away),
+no cookies and no analytics. **The three pages share their pieces as copies** - the
+meadow drawings (the hidden `<svg>` of symbols), the store badges with the line-up, and the footer -
+so a change to one of those goes into all three. **The inner pages follow the reference site's
+inner pages**: a compact header with everything centred (small logo linking home, title, one
+line; Support's email button sits in it) and the trees framing it, then the content at once -
+the policy is a card laid over the bottom of the meadow (`.doc-band`). The menu is Home, Support and Privacy policy only: clear on the sky at the top of each page, and
+a pinned bar with the logo once the hero has scrolled away (a fuller opaque bar that was always
+there was tried first and taken out: Ryan found it made the site look weird).
 
 Everything on it comes from the app (`collarryan/worry-muncher`), so it looks like the app:
 
 - **The meadow** is the app's own Scene (`src/components/Scene/Scene.tsx`) redrawn as SVG: the
-  same sky, sun, clouds, trees, bush, grass and flowers, in the same colours. The characters stand
-  in the page flow and the grass is laid out up from their feet (`--below`, `--behind` in
-  `styles.css`), so nothing can overlap them at any width.
-- **Pictures** (`img/`, converted to WebP): the logo is `store/art/Worry-Chomper-Logo.svg`, the hero
-  is `store/art/splash-artwork.png`, the four step and group pictures are `assets/onboarding/`, the
-  tile icons `assets/tiles/` and the grown-ups icons `assets/icons/`. `meet.webp` is the one
-  changed: its shadows were grey for the cream welcome card and are recoloured to the meadow's
-  shadow (`#4A6E33` at 35%), only where they touch the grass.
+  same sky, sun, clouds, trees, bush, grass and flowers, in the same colours. It runs as a strip
+  under the hero and as the hill the Chompers stand on at the bottom; wavy edges are kept to those
+  two places on purpose.
+- **Pictures** (`img/`): the logo is `store/art/Worry-Chomper-Logo.svg`; the step and builder
+  pictures are `assets/onboarding/` (WebP); the tile icons `assets/tiles/` and the grown-ups icons
+  `assets/icons/`. `chomper-rest.svg` (the Chomper at rest, its normal smile) is drawn by the
+  app's own renderer, `buildFullSVG` in `parts.ts`.
+- **Two pictures are stand-ins for Ryan to replace** - keep the file names and shapes and nothing
+  else needs to change:
+  - `hero-device.webp` (640 x 1284, transparent): the phone with the Home screen, cut from the
+    first store screenshot (`store/screenshots/play/01-hero.png`).
+  - `lineup.svg` (a wide strip, about 5.7 : 1, transparent): seven Chompers side by side, made
+    from the kit's own parts with `buildFullSVG`, their shadows in the meadow's shadow colour
+    (`#4A6E33` at 35%). A PNG or WebP can replace it; if its shape or the space under the feet
+    changes, adjust `--w` and the `margin-bottom` on `.gang` in `styles.css`.
 - **Fonts**: Nunito (SIL OFL, `fonts/Nunito-OFL.txt`), subset to Latin as WOFF2 from the app's
   `assets/fonts` with fontTools.
 - **House style**: British English, curly apostrophes, no em dashes, no health claims, and every
   claim checked against the app as it ships.
 - **Words** on the home page are Ryan's newer ones: the store screenshot captions
   (`store/screenshots/`) first, then the app's own pages (About & privacy, Worry settings, Worry
-  Time, the first welcome card). `STORE_LISTING.md` is older and was not used.
+  Time, the first welcome card).
 - **`support/` and `privacy/` are the only home of those pages** (since 6 October 2026), moved
   here from `crooked.app/worry-chompers/`. The old addresses there, and the original
   `collarryan.github.io/worry-chompers-privacy`, forward here. The app links to `privacy/`
   (`POLICY_URL` in the app's `app/parent/about.tsx`), whose "Last updated" line must match
   `LAST_UPDATED` in that file word for word. The contact is hello@worrychompers.com.
-- **The footer carries Crooked Ltd's registered details** on every page, which a UK company's
-  website has to show.
-- `og.png` is the picture shown when the link is shared (1200 x 630).
-- **Until launch the page says "Coming soon to Google Play and the App Store"** (twice: the top and
-  Meet the Chompers), so nobody lands on a listing that does not exist yet. **On launch day** put
-  Google's official badge back in both places - `img/google-play-badge.png`, unaltered, linking to
-  `https://play.google.com/store/apps/details?id=com.worrychompers.app` - and say "Coming soon to
-  iPhone" beside it. The trademark line the badge requires is already in the footer. No Apple badge
-  until the app is on the App Store: Apple does not allow one before.
+- **Crooked Ltd's registered details are on the privacy page**, under "Who we are". UK law wants
+  a company's name, number, place of registration and registered office on its website, not on
+  every page, so the footer stays short. Keep them on that page.
+- `og.png` is the picture shown when the link is shared (1200 x 630): the hero, flattened.
+- **The store badges link to `#` until the listings exist** (twice: in the hero and above the
+  line-up), Ryan's call. On launch day, point the Google Play one at
+  `https://play.google.com/store/apps/details?id=com.worrychompers.app` and the App Store one at
+  the app's App Store page. Both are the stores' official files, unaltered:
+  `img/google-play-badge.png` is Google's PNG with only its transparent margin trimmed (so both
+  badges share one height), and `img/app-store-badge.svg` comes from Apple's marketing toolbox.
+  Apple's rules allow its badge only for an app that is on the App Store, so the iPhone one should
+  not stay up long before that. Google's current guidelines ask for no trademark line.
