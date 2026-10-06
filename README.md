@@ -21,8 +21,8 @@ Everything on it comes from the app (`collarryan/worry-muncher`), so it looks li
   pictures are `assets/onboarding/` (WebP); the tile icons `assets/tiles/` and the grown-ups icons
   `assets/icons/`. `chomper-rest.svg` (the Chomper at rest, its normal smile) is drawn by the
   app's own renderer, `buildFullSVG` in `parts.ts`.
-- **Two pictures are stand-ins for Ryan to replace** - keep the file names and shapes and nothing
-  else needs to change:
+- **Two pictures began as stand-ins, and Ryan kept them** (6 October 2026). If either is ever
+  redrawn, keep the file name and shape and nothing else needs to change:
   - `hero-device.webp` (640 x 1284, transparent): the phone with the Home screen, cut from the
     first store screenshot (`store/screenshots/play/01-hero.png`).
   - `lineup.svg` (a wide strip, about 5.7 : 1, transparent): seven Chompers side by side, made
