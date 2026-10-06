@@ -21,11 +21,11 @@ Everything on it comes from the app (`collarryan/worry-muncher`), so it looks li
 - **Words** on the home page are Ryan's newer ones: the store screenshot captions
   (`store/screenshots/`) first, then the app's own pages (About & privacy, Worry settings, Worry
   Time, the first welcome card). `STORE_LISTING.md` is older and was not used.
-- **`support/` and `privacy/`** carry the pages from `crooked.app/worry-chompers/`, word for word
-  (only the quotes and apostrophes curled). **The policy now exists in two places**, and the app
-  links to the crooked.app one (`POLICY_URL` in `app/parent/about.tsx`): until one of them
-  redirects to the other, a change to the policy has to be made in both, and its "Last updated"
-  line must still match `LAST_UPDATED` in that file word for word.
+- **`support/` and `privacy/` are the only home of those pages** (since 6 October 2026), moved
+  here from `crooked.app/worry-chompers/`. The old addresses there, and the original
+  `collarryan.github.io/worry-chompers-privacy`, forward here. The app links to `privacy/`
+  (`POLICY_URL` in the app's `app/parent/about.tsx`), whose "Last updated" line must match
+  `LAST_UPDATED` in that file word for word. The contact is hello@worrychompers.com.
 - **The footer carries Crooked Ltd's registered details** on every page, which a UK company's
   website has to show.
 - `og.png` is the picture shown when the link is shared (1200 x 630).
