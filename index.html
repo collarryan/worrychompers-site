@@ -1,0 +1,251 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Worry Chompers: helping children express their worries and let them go</title>
+<meta name="description" content="Helping children express their worries and let them go. Children can draw, type, colour or record what’s on their mind, then feed it to their Chomper. No ads, no subscriptions, and nothing leaves your device.">
+<link rel="canonical" href="https://worrychompers.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://worrychompers.com/">
+<meta property="og:title" content="Worry Chompers">
+<meta property="og:description" content="Helping children express their worries and let them go. No ads, no subscriptions, and nothing leaves your device.">
+<meta property="og:image" content="https://worrychompers.com/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#A6D3EC">
+<link rel="icon" href="favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="preload" href="fonts/nunito-800.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- The shapes of the app's own meadow (src/components/Scene/Scene.tsx), drawn once and reused. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="cloud" viewBox="-35 -22 70 42">
+      <g fill="#FFFFFF">
+        <circle cx="0" cy="0" r="18"/><circle cx="-20" cy="5" r="13"/>
+        <circle cx="20" cy="5" r="14"/><circle cx="3" cy="-8" r="13"/>
+        <rect x="-30" y="2" width="60" height="12"/>
+      </g>
+    </symbol>
+    <symbol id="pine" viewBox="-35 -101 70 102">
+      <rect x="-4.5" y="-22" width="9" height="22" fill="#9B6B43"/>
+      <g fill="#5FA85A">
+        <path d="M0 -58 L34 -16 L-34 -16 Z"/><path d="M0 -80 L28 -42 L-28 -42 Z"/><path d="M0 -100 L22 -66 L-22 -66 Z"/>
+      </g>
+    </symbol>
+    <symbol id="broadleaf" viewBox="-41 -101 82 102">
+      <rect x="-5.5" y="-42" width="11" height="42" fill="#9B6B43"/>
+      <path d="M0 -36 L-12 -46 M0 -36 L12 -48" stroke="#9B6B43" stroke-width="5.5" stroke-linecap="round"/>
+      <g fill="#5FA85A">
+        <circle cx="-20" cy="-62" r="20"/><circle cx="20" cy="-62" r="20"/>
+        <circle cx="-11" cy="-82" r="18"/><circle cx="11" cy="-82" r="18"/><circle cx="0" cy="-68" r="24"/>
+      </g>
+    </symbol>
+    <symbol id="bush" viewBox="-31 -33 62 41">
+      <g fill="#7CB758">
+        <circle cx="-15" cy="-5" r="14"/><circle cx="15" cy="-5" r="15"/><circle cx="0" cy="-14" r="18"/>
+        <rect x="-30" y="-5" width="60" height="12"/>
+      </g>
+    </symbol>
+    <symbol id="tuft" viewBox="-13 -19 26 21">
+      <path d="M-5 0 Q-9 -7.8 -10.6 -13 M0 0 Q0 -10.2 0 -17 M5 0 Q9 -7.8 10.6 -13" fill="none" stroke="#79B84F" stroke-width="2.4" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="flower-pink" viewBox="-15 -38 30 40">
+      <path d="M0 0 L0 -26" stroke="#79B84F" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M0 -9 Q-10 -16 -14 -8 Q-6 -6 0 -9 Z M0 -9 Q10 -16 14 -8 Q6 -6 0 -9 Z" fill="#6FAE4C"/>
+      <g fill="#F2A6C8"><circle cx="-6" cy="-26" r="5"/><circle cx="6" cy="-26" r="5"/><circle cx="0" cy="-32" r="5"/><circle cx="0" cy="-20" r="5"/></g>
+      <circle cx="0" cy="-26" r="4" fill="#FFF6DC"/>
+    </symbol>
+    <symbol id="flower-yellow" viewBox="-15 -38 30 40">
+      <path d="M0 0 L0 -26" stroke="#79B84F" stroke-width="2.4" stroke-linecap="round"/>
+      <path d="M0 -9 Q-10 -16 -14 -8 Q-6 -6 0 -9 Z M0 -9 Q10 -16 14 -8 Q6 -6 0 -9 Z" fill="#6FAE4C"/>
+      <g fill="#F7D062"><circle cx="-6" cy="-26" r="5"/><circle cx="6" cy="-26" r="5"/><circle cx="0" cy="-32" r="5"/><circle cx="0" cy="-20" r="5"/></g>
+      <circle cx="0" cy="-26" r="4" fill="#FFF6DC"/>
+    </symbol>
+    <linearGradient id="ground" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#8FC968"/><stop offset="1" stop-color="#79BB57"/>
+    </linearGradient>
+  </defs>
+</svg>
+
+<header class="hero">
+  <div class="sky" aria-hidden="true">
+    <div class="sun"></div>
+    <svg class="cloud cloud-a"><use href="#cloud"/></svg>
+    <svg class="cloud cloud-b"><use href="#cloud"/></svg>
+    <svg class="cloud cloud-c"><use href="#cloud"/></svg>
+  </div>
+
+  <div class="hero-text">
+    <h1><img class="logo" src="img/logo.svg" alt="Worry Chompers" width="1016" height="395"></h1>
+    <p class="tagline">Helping children <span class="hl-purple">express their worries</span> and <span class="hl-teal">let them go</span></p>
+    <p class="promise">No ads <span aria-hidden="true">·</span> No subscriptions <span aria-hidden="true">·</span> Nothing leaves your device</p>
+    <div class="get">
+      <p class="soon">Coming soon to Google Play and the App Store</p>
+    </div>
+  </div>
+
+  <div class="meadow" aria-hidden="true">
+    <div class="scenery">
+      <svg class="hill" viewBox="0 0 1000 100" preserveAspectRatio="none"><path d="M0 62 C150 58 150 50 300 52 C425 54 425 58 550 56 C635 55 635 42 720 40 C800 38 800 30 870 30 C935 30 935 38 1000 40 L1000 100 L0 100 Z" fill="#C7E6A3"/></svg>
+      <svg class="pine"><use href="#pine"/></svg>
+      <svg class="broadleaf"><use href="#broadleaf"/></svg>
+      <svg class="bush"><use href="#bush"/></svg>
+      <svg class="knoll" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="M0 50 Q500 -50 1000 50 L1000 200 L0 200 Z" fill="url(#ground)"/></svg>
+      <svg class="tuft" style="--x:6%;--y:.38;--s:1.2"><use href="#tuft"/></svg>
+      <svg class="tuft" style="--x:20%;--y:.62;--s:.8"><use href="#tuft"/></svg>
+      <svg class="tuft" style="--x:28%;--y:.2;--s:1.1"><use href="#tuft"/></svg>
+      <svg class="tuft" style="--x:37%;--y:.74;--s:.7"><use href="#tuft"/></svg>
+      <svg class="tuft" style="--x:64%;--y:.72;--s:.7"><use href="#tuft"/></svg>
+      <svg class="tuft" style="--x:72%;--y:.24;--s:1.1"><use href="#tuft"/></svg>
+      <svg class="tuft" style="--x:80%;--y:.6;--s:.8"><use href="#tuft"/></svg>
+      <svg class="tuft" style="--x:94%;--y:.36;--s:1.2"><use href="#tuft"/></svg>
+      <svg class="flower" style="--x:13%;--y:.42"><use href="#flower-pink"/></svg>
+      <svg class="flower" style="--x:87%;--y:.4"><use href="#flower-yellow"/></svg>
+    </div>
+    <div class="stand hero-chomper"><img src="img/hero-chomper.webp" alt="" width="762" height="912"></div>
+  </div>
+</header>
+
+<main>
+
+  <section class="band cream" id="how">
+    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C360 0 720 0 1080 22 C1260 33 1350 40 1440 34 L1440 60 L0 60 Z"/></svg>
+    <div class="wrap">
+      <h2>How it works</h2>
+      <ol class="steps">
+        <li class="step">
+          <div class="step-art tiles" aria-hidden="true">
+            <span style="--bg:#F6D9E4"><img src="img/tile-draw.webp" alt=""></span>
+            <span style="--bg:#FBEBC4"><img src="img/tile-type.webp" alt=""></span>
+            <span style="--bg:#D7EEDC"><img src="img/tile-colour.webp" alt=""></span>
+            <span style="--bg:#E4DAF3"><img src="img/tile-record.webp" alt=""></span>
+          </div>
+          <h3>Different ways to express a worry</h3>
+          <p>Children can <strong>draw</strong>, <strong>type</strong>, <strong>colour</strong> or <strong>record</strong> what’s on their mind.</p>
+        </li>
+        <li class="step">
+          <div class="step-art"><img src="img/feed.webp" alt="A worry being dropped into a Chomper’s open mouth" width="640" height="768"></div>
+          <h3>Feed the worry to their Chomper</h3>
+          <p>Their Chomper gobbles up the worry, helping them to let it go.</p>
+        </li>
+        <li class="step">
+          <div class="step-art kind">
+            <p class="bubble">You were brave to share that.</p>
+            <img src="img/kind.webp" alt="A happy Chomper" width="640" height="768">
+          </div>
+          <h3>Their Chomper responds</h3>
+          <p>A mix of supportive and playful messages - never advice.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="band skyband" id="chompers">
+    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 26 C240 46 480 50 760 30 C1040 10 1240 6 1440 22 L1440 60 L0 60 Z"/></svg>
+    <svg class="cloud cloud-d" aria-hidden="true"><use href="#cloud"/></svg>
+    <svg class="cloud cloud-e" aria-hidden="true"><use href="#cloud"/></svg>
+    <div class="wrap split">
+      <div class="split-text">
+        <h2>Customise their own unique Chompers</h2>
+        <p>Millions of combinations of shapes, colours and accessories to choose from.</p>
+        <h3>Each child can have their own Chomper</h3>
+        <p>Assign each Chomper to a child to keep their worries separate.</p>
+      </div>
+      <div class="split-art"><img src="img/build.webp" alt="A Chomper in a wizard hat and glasses, holding a wand, with a top hat, a balloon, a bow tie and a crown to choose from" width="900" height="1080"></div>
+    </div>
+  </section>
+
+  <section class="band purple" id="grown-ups">
+    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 34 C300 8 620 4 900 22 C1140 38 1300 40 1440 28 L1440 60 L0 60 Z"/></svg>
+    <div class="wrap">
+      <h2>Understand your child’s worries</h2>
+      <p class="intro">Every worry gets saved to a separate grown-ups area for you to read later.</p>
+      <ul class="cards">
+        <li class="card">
+          <img src="img/icon-parent.webp" alt="" width="144" height="144">
+          <h3>Just for grown-ups</h3>
+          <p>A separate area with important information and settings, behind a short reading challenge a young child cannot pass.</p>
+        </li>
+        <li class="card">
+          <img src="img/icon-eat-forever.webp" alt="" width="144" height="144">
+          <h3>Choose what happens to a worry</h3>
+          <p>Always keep it, let your child choose each time, or never keep it. Kept worries are saved in the Chomper’s tummy, so you can look back at them together later.</p>
+        </li>
+        <li class="card">
+          <img src="img/icon-worry-time.webp" alt="" width="144" height="144">
+          <h3>Worry Time</h3>
+          <p>Worry Time gives you a simple way to sit down with your child and talk about anything that’s been worrying them. It can be part of bedtime, after school, or whenever works best for you.</p>
+        </li>
+      </ul>
+      <p class="safeguarding">Worry Chompers is a playful way for children to express and let go of worries. It is not medical advice, therapy, or crisis support, and it is not a substitute for talking with a trusted adult. If you are worried about your child, please speak to your GP or another qualified professional.</p>
+    </div>
+  </section>
+
+  <section class="band cream" id="quiet">
+    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 24 C260 44 560 48 820 30 C1060 14 1280 10 1440 26 L1440 60 L0 60 Z"/></svg>
+    <div class="wrap">
+      <h2>Nothing ever leaves your device</h2>
+      <p class="intro">No account, no cloud, and no internet permission at all.</p>
+      <ul class="quiet">
+        <li style="--bg:#FDDCDF">
+          <h3>Private by default</h3>
+          <p>There are no accounts and no sign-in. The app shows no adverts and contains no analytics, tracking, or advertising tools of any kind.</p>
+        </li>
+        <li style="--bg:#FDE9B7">
+          <h3>Kept on this device</h3>
+          <p>Everything your child makes - their drawings, words, recordings and their Chomper - is kept only on this device.</p>
+        </li>
+        <li style="--bg:#D1EED4">
+          <h3>Saving a copy</h3>
+          <p>The only time anything your child makes leaves the app is when you, as a grown-up, deliberately choose to save a copy. There is no way for a child to share a worry out of the app.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="band get-band" id="get">
+    <svg class="edge" viewBox="0 0 1440 60" preserveAspectRatio="none" aria-hidden="true"><path d="M0 30 C320 6 640 2 940 20 C1160 33 1320 36 1440 26 L1440 60 L0 60 Z"/></svg>
+    <div class="wrap">
+      <h2>Meet the Chompers</h2>
+      <p class="intro">Chompers are gentle little creatures who love to eat worries.</p>
+      <div class="get">
+        <p class="soon">Coming soon to Google Play and the App Store</p>
+      </div>
+    </div>
+    <div class="meadow meadow-get">
+      <div class="scenery" aria-hidden="true">
+        <svg class="knoll" viewBox="0 0 1000 200" preserveAspectRatio="none"><path d="M0 50 Q500 -50 1000 50 L1000 200 L0 200 Z" fill="url(#ground)"/></svg>
+        <svg class="tuft" style="--x:9%;--y:.4;--s:1.2"><use href="#tuft"/></svg>
+        <svg class="tuft" style="--x:22%;--y:.7;--s:.8"><use href="#tuft"/></svg>
+        <svg class="tuft" style="--x:78%;--y:.68;--s:.8"><use href="#tuft"/></svg>
+        <svg class="tuft" style="--x:91%;--y:.42;--s:1.2"><use href="#tuft"/></svg>
+        <svg class="flower" style="--x:16%;--y:.3"><use href="#flower-yellow"/></svg>
+        <svg class="flower" style="--x:85%;--y:.32"><use href="#flower-pink"/></svg>
+      </div>
+      <div class="stand gang"><img src="img/meet.webp" alt="Nine Chompers, each dressed up differently: a party hat, a balloon, a pirate, a crown, a wizard and more" width="920" height="1104"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <nav aria-label="Help and legal">
+      <a href="support/index.html">Support</a>
+      <a href="privacy/index.html">Privacy policy</a>
+      <a href="mailto:hello@worrychompers.com">hello@worrychompers.com</a>
+    </nav>
+    <p>© 2026 Crooked Ltd. This website doesn’t use cookies or analytics.</p>
+    <p class="small">Crooked Ltd, registered in England and Wales, company number 17444465. Registered office: Unit 8 Swanwick Court, Alfreton, DE55 7AS, United Kingdom.</p>
+    <p class="small">Google Play and the Google Play logo are trademarks of Google LLC.</p>
+  </div>
+</footer>
+
+</body>
+</html>

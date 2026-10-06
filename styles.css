@@ -1,0 +1,294 @@
+/* Worry Chompers - one page in the app's own materials: its meadow, its Chompers, its colours
+   (src/theme/themes.ts and src/components/Scene/Scene.tsx in the app repo) and Nunito. */
+
+@font-face { font-family: Nunito; font-weight: 400; font-style: normal; font-display: swap; src: url(fonts/nunito-400.woff2) format('woff2'); }
+@font-face { font-family: Nunito; font-weight: 700; font-style: normal; font-display: swap; src: url(fonts/nunito-700.woff2) format('woff2'); }
+@font-face { font-family: Nunito; font-weight: 800; font-style: normal; font-display: swap; src: url(fonts/nunito-800.woff2) format('woff2'); }
+
+:root {
+  --ink: #3F3150;
+  --ink-soft: #5E5070;
+  --cream: #FDF3E7;
+  --panel: #FBF0DE;
+  --surface: #FFFDF9;
+  --brand: #7E5AA6;
+  --sky-top: #A6D3EC;
+  --sky-bot: #CFEAF2;
+  --hill: #C7E6A3;
+  --ground: #8FC968;
+  --ground-bot: #79BB57;
+  --shade: rgba(74, 110, 51, 0.35);
+  --round: 28px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: Nunito, ui-rounded, system-ui, sans-serif;
+  font-size: 18px;
+  line-height: 1.55;
+  overflow-x: hidden;
+}
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, h3, p { margin: 0; }
+h2 { font-weight: 800; font-size: clamp(32px, 4.2vw, 46px); line-height: 1.15; text-align: center; text-wrap: balance; }
+h3 { font-weight: 800; font-size: 22px; line-height: 1.25; text-wrap: balance; }
+a { color: inherit; }
+a:focus-visible { outline: 3px solid var(--brand); outline-offset: 4px; border-radius: 10px; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+
+/* ---- Clouds drift across the sky, as they do in the app; nothing else moves. ---- */
+.cloud { position: absolute; left: 0; width: 150px; height: 90px; opacity: 0.95; animation: drift linear infinite; }
+@keyframes drift {
+  from { transform: translateX(-200px); }
+  to { transform: translateX(calc(100vw + 40px)); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .cloud { animation: none; transform: translateX(var(--rest, 60vw)); }
+}
+
+/* ---- Hero: the meadow ---- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(var(--sky-top), var(--sky-bot) 75%);
+}
+.sky { position: absolute; inset: 0; pointer-events: none; }
+.sun {
+  position: absolute;
+  left: max(5%, 28px);
+  top: 64px;
+  width: 84px;
+  height: 84px;
+  border-radius: 50%;
+  background: #FCE08C;
+  box-shadow: 0 0 0 18px rgba(253, 239, 188, 0.55);
+}
+.cloud-a { top: 7%; width: 170px; height: 102px; animation-duration: 150s; animation-delay: -40s; --rest: 70vw; }
+.cloud-b { top: 22%; width: 100px; height: 60px; animation-duration: 210s; animation-delay: -150s; --rest: 12vw; }
+.cloud-c { top: 14%; width: 130px; height: 78px; animation-duration: 180s; animation-delay: -110s; --rest: 84vw; }
+
+.hero-text { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; padding: 36px 20px 0; text-align: center; }
+.logo { width: min(500px, 84vw); margin: 0 auto; }
+.tagline { margin-top: 18px; font-weight: 800; font-size: clamp(27px, 3.4vw, 40px); line-height: 1.2; text-wrap: balance; }
+/* The first store frame: two phrases picked out in the logo's purple and teal, darkened just
+   enough to read on the sky (both over 3:1 against it, the floor for text this size). */
+.hl-purple { color: #6F4E9C; }
+.hl-teal { color: #1B746D; }
+.promise { margin-top: 12px; font-weight: 700; font-size: clamp(16px, 1.5vw, 19px); text-wrap: balance; }
+
+.get { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 10px 16px; margin-top: 22px; }
+.play img { width: auto; height: 72px; }  /* the badge file carries its own transparent margin */
+.soon {
+  padding: 10px 18px;
+  border-radius: 999px;
+  background: rgba(255, 253, 249, 0.8);
+  font-weight: 700;
+  font-size: 16px;
+}
+
+/* The ground, laid out from the creature's feet. The creature stands in the page flow, so
+   nothing can overlap it; the scenery is drawn behind, measured up from the bottom:
+   --below is the grass in front of its feet, --behind the grass between them and the crown. */
+.meadow {
+  --below: clamp(84px, 8vw, 130px);
+  --behind: clamp(30px, 3vw, 52px);
+  --hk: calc(var(--below) + var(--behind));
+  position: relative;
+  display: flow-root;  /* or the creature's bottom margin escapes the box and the grass stops short */
+  padding-top: 18px;
+}
+.scenery { position: absolute; inset: 0; pointer-events: none; }
+.scenery > * { position: absolute; }
+/* The knoll's crown is the top of its box (the curve peaks at y 0); its ends are a quarter down. */
+.knoll { left: 0; bottom: 0; width: 100%; height: var(--hk); }
+.hill { left: 0; bottom: calc(var(--hk) * 0.55); width: 100%; height: calc(var(--hk) * 0.75); }
+.pine { left: 9%; bottom: calc(var(--hk) * 0.8); height: clamp(104px, 11vw, 170px); aspect-ratio: 70 / 102; transform: translateX(-50%); }
+.broadleaf { left: 87%; bottom: calc(var(--hk) * 0.83); height: clamp(104px, 11vw, 170px); aspect-ratio: 82 / 102; transform: translateX(-50%); }
+.bush { left: 93%; bottom: calc(var(--hk) * 0.76); height: clamp(38px, 4vw, 60px); aspect-ratio: 62 / 41; transform: translateX(-50%); }
+.tuft { left: var(--x); bottom: calc(var(--hk) * var(--y)); width: calc(36px * var(--s, 1)); height: calc(29px * var(--s, 1)); transform: translateX(-50%); }
+.flower { left: var(--x); bottom: calc(var(--hk) * var(--y)); width: clamp(32px, 3.2vw, 46px); aspect-ratio: 30 / 40; transform: translateX(-50%); }
+
+/* A character standing on the grass: its picture's own transparent margin under the feet is
+   measured (2.2% of the hero's height, 5.2% of the group's), so the feet land --below up. */
+.stand { position: relative; margin: 0 auto; width: var(--w); }
+.stand img { position: relative; width: 100%; }
+.hero-chomper { --w: clamp(220px, 25vw, 360px); margin-bottom: calc(var(--below) - var(--w) * 0.026); }
+.hero-chomper::before {
+  content: "";
+  position: absolute;
+  left: 18%;
+  right: 18%;
+  bottom: -1.2%;
+  height: 7%;
+  border-radius: 50%;
+  background: var(--shade);
+}
+
+/* ---- Bands, each with a soft hill for a top edge ---- */
+.band { position: relative; padding: 56px 0 96px; }
+.band > .edge { position: absolute; left: 0; bottom: 100%; width: 100%; height: 60px; margin-bottom: -1px; fill: currentColor; }
+.cream { background: var(--cream); }
+.cream > .edge { color: var(--cream); }
+
+/* How it works */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 40px; }
+.step {
+  padding: 28px 26px 32px;
+  border-radius: var(--round);
+  background: var(--surface);
+  box-shadow: 0 6px 22px rgba(63, 49, 80, 0.08);
+  text-align: center;
+}
+.step-art { display: grid; place-items: center; height: 220px; margin-bottom: 18px; }
+.step-art > img { width: auto; max-height: 220px; }
+.step p { margin-top: 8px; color: var(--ink-soft); }
+.tiles { grid-template-columns: repeat(2, 96px); gap: 12px; align-content: center; }
+.tiles span { display: grid; place-items: center; width: 96px; height: 96px; border-radius: 24px; background: var(--bg); }
+.tiles img { width: auto; height: 52px; }
+.kind { position: relative; }
+.kind > img { max-height: 190px; margin-top: 30px; }
+.bubble {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 1;
+  width: max-content;
+  max-width: 250px;
+  padding: 9px 16px;
+  border-radius: 18px;
+  background: var(--panel);
+  box-shadow: 0 3px 10px rgba(63, 49, 80, 0.12);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.3;
+  transform: translateX(-50%);
+}
+.bubble::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -9px;
+  border: 10px solid transparent;
+  border-bottom: 0;
+  border-top-color: var(--panel);
+  transform: translateX(-50%);
+}
+
+/* A Chomper of their own */
+.skyband { background: linear-gradient(#BCE0F0, #DDF0F5); overflow: hidden; }
+.skyband > .edge { color: #BCE0F0; }
+.skyband { overflow: visible; }
+.skyband .cloud { animation: none; }
+.cloud-d { top: 40px; left: 6%; width: 120px; height: 72px; }
+.cloud-e { top: 90px; left: auto; right: 7%; width: 90px; height: 54px; }
+.split { position: relative; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; }
+.split-text h2 { text-align: left; }
+.split-text p { margin-top: 12px; font-size: 19px; }
+.split-text h3 { margin-top: 28px; }
+.split-art img { width: min(460px, 100%); margin: 0 auto; }
+
+/* For grown-ups */
+.purple { background: var(--brand); color: #FFFFFF; }
+.purple > .edge { color: var(--brand); }
+.intro { max-width: 640px; margin: 14px auto 0; text-align: center; font-size: 19px; text-wrap: balance; }
+.cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.card { padding: 28px; border-radius: var(--round); background: var(--surface); color: var(--ink); }
+.card img { width: 64px; height: 64px; }
+.card h3 { margin-top: 14px; }
+.card p { margin-top: 8px; color: var(--ink-soft); }
+.safeguarding { max-width: 760px; margin: 36px auto 0; text-align: center; font-size: 16px; }
+
+/* Built to be quiet */
+.quiet { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 40px; }
+.quiet li { padding: 26px 24px 28px; border-radius: var(--round); background: var(--bg); }
+.quiet p { margin-top: 8px; color: var(--ink-soft); }
+
+/* Meet the Chompers - the gang on the hill, and the way to get the app */
+.band.get-band { padding-bottom: 0; background: linear-gradient(var(--sky-top), var(--sky-bot)); }
+.get-band > .edge { color: var(--sky-top); }
+.meadow-get { --below: clamp(40px, 4vw, 64px); --behind: clamp(40px, 4vw, 64px); margin-top: 10px; }
+.gang { --w: clamp(290px, 34vw, 440px); margin-bottom: calc(var(--below) - var(--w) * 0.062); }
+
+/* Footer: the bottom of the meadow */
+.footer { padding: 6px 0 40px; background: var(--ground-bot); text-align: center; font-size: 16px; }
+.footer nav { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 28px; font-weight: 800; }
+.footer nav a { text-decoration: none; }
+.footer nav a:hover { text-decoration: underline; }
+.footer p { margin-top: 14px; }
+.footer .small { margin-top: 6px; font-size: 13px; }
+
+@media (max-width: 960px) {
+  .steps, .cards, .quiet { grid-template-columns: 1fr; max-width: 460px; margin-left: auto; margin-right: auto; }
+  .split { grid-template-columns: 1fr; }
+  .split-text h2 { text-align: center; }
+}
+@media (max-width: 600px) {
+  body { font-size: 17px; }
+  /* The logo fills the top of a phone, so the sun moves into the corner above it and the
+     clouds drift lower, through the open sky beside the creature. */
+  .hero-text { padding-top: 84px; }
+  .sun { top: 22px; left: 18px; width: 54px; height: 54px; box-shadow: 0 0 0 12px rgba(253, 239, 188, 0.55); }
+  .cloud-a { top: auto; bottom: 25%; width: 120px; height: 72px; }
+  .cloud-b { top: auto; bottom: 33%; }
+  .cloud-c { display: none; }
+  .band { padding: 44px 0 80px; }
+  .play img { height: 64px; }
+  .cloud-d, .cloud-e { display: none; }
+}
+
+/* ---- Inner pages (support, privacy): the sky with the logo, the text on a card, the meadow foot ---- */
+.page-head {
+  position: relative;
+  overflow: hidden;
+  padding: 40px 20px 84px;
+  background: linear-gradient(var(--sky-top), var(--sky-bot));
+  text-align: center;
+}
+.page-head .sun { top: 30px; width: 64px; height: 64px; box-shadow: 0 0 0 14px rgba(253, 239, 188, 0.55); }
+.cloud-page { top: 46px; animation-duration: 160s; animation-delay: -60s; --rest: 78vw; }
+.logo-link { position: relative; display: inline-block; border-radius: 16px; }
+.page-head .logo { width: min(320px, 72vw); }
+.page-body { position: relative; padding: 0 0 110px; background: var(--cream); }
+.page-body > .edge { position: absolute; left: 0; bottom: 100%; width: 100%; height: 60px; margin-bottom: -1px; fill: currentColor; color: var(--cream); }
+.doc {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 40px clamp(22px, 5vw, 60px) 48px;
+  border-radius: var(--round);
+  background: var(--surface);
+  box-shadow: 0 6px 22px rgba(63, 49, 80, 0.08);
+}
+.doc h1 { font-weight: 800; font-size: clamp(32px, 4vw, 42px); line-height: 1.15; }
+.doc h2 { margin-top: 32px; font-size: 23px; text-align: left; }
+.doc p, .doc ul { margin-top: 12px; }
+.doc ul { padding-left: 1.3em; list-style: disc; }
+.doc li + li { margin-top: 8px; }
+.doc a { color: var(--brand); font-weight: 700; }
+.doc .lead { margin-top: 18px; font-size: 20px; }
+.doc .updated, .doc .note { color: var(--ink-soft); font-size: 16px; }
+.doc .updated { margin-top: 6px; }
+.doc .email-button {
+  display: inline-block;
+  margin-top: 6px;
+  padding: 14px 28px;
+  border-radius: 999px;
+  background: #F2A65A;
+  color: #4A2E12;
+  font-size: 19px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.doc .email-button:hover { background: #EE9A47; }
+.footer { position: relative; }
+.footer > .edge { position: absolute; left: 0; bottom: 100%; width: 100%; height: 60px; margin-bottom: -1px; fill: var(--ground-bot); }
+@media (max-width: 600px) {
+  /* The sun moves into the corner above the logo, as on home. */
+  .page-head { padding-top: 84px; }
+  .page-head .sun { top: 22px; left: 18px; width: 54px; height: 54px; box-shadow: 0 0 0 12px rgba(253, 239, 188, 0.55); }
+}
