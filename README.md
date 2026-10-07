@@ -43,6 +43,11 @@ Everything on it comes from the app (`collarryan/worry-muncher`), so it looks li
   `collarryan.github.io/worry-chompers-privacy`, forward here. The app links to `privacy/`
   (`POLICY_URL` in the app's `app/parent/about.tsx`), whose "Last updated" line must match
   `LAST_UPDATED` in that file word for word. The contact is hello@worrychompers.com.
+- **Page links are the clean addresses** - `/`, `/support/`, `/privacy/` - never `index.html`
+  (Ryan, 7 October 2026: the address bar should read neatly). GitHub Pages serves each
+  folder's `index.html` at its folder's address. They are root-relative, so they work on the
+  live site but not between files opened straight from disk; pictures, fonts and styles are
+  still relative, so a page opened from disk still looks right.
 - **Crooked Ltd's registered details are on the privacy page**, under "Who we are". UK law wants
   a company's name, number, place of registration and registered office on its website, not on
   every page, so the footer stays short. Keep them on that page.
