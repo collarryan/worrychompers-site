@@ -25,10 +25,12 @@ Everything on it comes from the app (`collarryan/worry-muncher`), so it looks li
   redrawn, keep the file name and shape and nothing else needs to change:
   - `hero-device.webp` (640 x 1284, transparent): the phone with the Home screen, cut from the
     first store screenshot (`store/screenshots/play/01-hero.png`).
-  - `lineup.svg` (a wide strip, about 5.7 : 1, transparent): seven Chompers side by side, made
-    from the kit's own parts with `buildFullSVG`, their shadows in the meadow's shadow colour
-    (`#4A6E33` at 35%). A PNG or WebP can replace it; if its shape or the space under the feet
-    changes, adjust `--w` and the `margin-bottom` on `.gang` in `styles.css`.
+  - `lineup.svg` (a wide strip, about 4.5 : 1, transparent): Ryan's own line-up of six
+    Chompers on their shadows (uploaded 6 October), its frame cropped to the drawing so the
+    lowest shadow is the bottom edge - that is what lets `.gang` stand it on the grass with a
+    plain `margin-bottom: var(--below)`. A replacement needs the same crop (no empty space
+    above the hats or under the shadows), or the badges float and the shadows sit above the
+    grass; if its shape changes, update the `width`/`height` on its `<img>` too.
 - **Fonts**: Nunito (SIL OFL, `fonts/Nunito-OFL.txt`), subset to Latin as WOFF2 from the app's
   `assets/fonts` with fontTools.
 - **House style**: British English, curly apostrophes, no em dashes, no health claims, and every

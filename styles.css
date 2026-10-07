@@ -141,7 +141,8 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .flower { left: var(--x); bottom: calc(var(--hk) * var(--y)); width: clamp(32px, 3.2vw, 46px); aspect-ratio: 30 / 40; transform: translateX(-50%); }
 
 /* A character standing on the grass: its picture's own transparent margin under the feet is
-   measured (2.2% of the hero's height, 5.2% of the group's), so the feet land --below up. */
+   measured (2.2% of the hero's height; the line-up is cropped to its shadows, so none), so the
+   feet land --below up. */
 .stand { position: relative; margin: 0 auto; width: var(--w); }
 .stand img { position: relative; width: 100%; }
 /* ---- Bands, each with a soft hill for a top edge ---- */
@@ -227,7 +228,7 @@ ul, ol { list-style: none; margin: 0; padding: 0; }
 .band.get-band { padding-bottom: 0; background: linear-gradient(var(--sky-top), var(--sky-bot) calc(100% - 24px), var(--ground-bot) calc(100% - 24px)); }
 .get-band > .edge { color: var(--sky-top); }
 .meadow-get { --below: clamp(40px, 4vw, 64px); --behind: clamp(40px, 4vw, 64px); margin-top: 10px; }
-.gang { --w: min(1100px, 92vw); margin-bottom: calc(var(--below) - var(--w) * 0.0068); margin-left: calc(50% - var(--w) / 2); }
+.gang { --w: min(1100px, 92vw); margin-bottom: var(--below); margin-left: calc(50% - var(--w) / 2); }
 .meadow-get { overflow: hidden; }
 
 /* Footer: the bottom of the meadow */
