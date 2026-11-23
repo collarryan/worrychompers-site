@@ -52,10 +52,10 @@ Everything on it comes from the app (`collarryan/worry-muncher`), so it looks li
   a company's name, number, place of registration and registered office on its website, not on
   every page, so the footer stays short. Keep them on that page.
 - `og.png` is the picture shown when the link is shared (1200 x 630): the hero, flattened.
-- **The store badges link to `#` until the listings exist** (twice: in the hero and above the
-  line-up), Ryan's call. On launch day, point the Google Play one at
-  `https://play.google.com/store/apps/details?id=com.worrychompers.app` and the App Store one at
-  the app's App Store page. Both are the stores' official files, unaltered:
+- **The Google Play badges link to the listing**
+  (`https://play.google.com/store/apps/details?id=com.worrychompers.app`, since the Android launch).
+  **The App Store ones link to `#` until the iPhone listing exists** (twice: in the hero and above
+  the line-up), Ryan's call; then point them at the app's App Store page. Both are the stores' official files, unaltered:
   `img/google-play-badge.png` is Google's PNG with only its transparent margin trimmed (so both
   badges share one height), and `img/app-store-badge.svg` comes from Apple's marketing toolbox.
   Apple's rules allow its badge only for an app that is on the App Store, so the iPhone one should
